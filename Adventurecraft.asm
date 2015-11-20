@@ -1,4 +1,5 @@
 #####################ARRAY GENERATOR######################################
+# Grant
 	.data
 list:   .space  1000
 listsz: .word	250          # using as array of integers
