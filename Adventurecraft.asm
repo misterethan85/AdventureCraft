@@ -1,3 +1,65 @@
+########################HEADER/DIFFICULTY_SELECTION###########################
+## JACOB_REINSMITH
+.text
+         .globl __start
+    __start:
+         
+         la $a0,title # Load and print title
+         li $v0,4
+         syscall
+        
+         la $a0,name1 # Load and print names
+         li $v0,4
+         syscall
+         
+         la $a0,name2
+         li $v0,4
+         syscall
+         
+         la $a0,name3
+         li $v0,4
+         syscall
+         
+         la $a0,name4
+         li $v0,4
+         syscall
+                  
+         la $a0,str1 # Load and print string asking for string(difficulty)
+         li $v0,4
+         syscall
+
+         li $v0,8 # collect input
+         la $a0, buffer # load byte space into address
+         li $a1, 20 # allot the byte space for string
+         move $t0,$a0 # save string to t0
+         syscall
+
+         la $a0,str2 # load and print chosen difficulty
+         li $v0,4
+         syscall
+
+         la $a0, buffer # reload byte space to primary address
+         move $a0,$t0 # primary address = t0 address (load pointer)
+         li $v0,4 # print string
+         syscall
+
+         li $v0,10 # end program
+         syscall
+
+
+               .data
+             buffer: .space 20
+             title: .asciiz "Assembly Adventures: Quest for The Blood Diamond \n"
+             name1: .asciiz  "Kory Hershock \n"
+             name2: .asciiz  "Grant Arras \n"
+             name3: .asciiz  "Ethan Hicks \n"
+             name4: .asciiz  "Jacob Reinsmith \n"
+             str1:  .asciiz "Enter difficulty(Easy: e Medium: m Hard: h): "
+             str2:  .asciiz "Chosen difficulty:\n"
+             dif1:  .asciiz "Easy"
+             dif2:  .asciiz "Medium"
+             dif3:  .asciiz "Hard"
+
 #####################ARRAY GENERATOR######################################
 # Grant
 	.data
